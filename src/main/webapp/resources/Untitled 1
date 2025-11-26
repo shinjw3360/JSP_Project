@@ -1,0 +1,22 @@
+1. 오늘 날짜를 먼저 넣는다. (2025-xx-xx)
+2. DB 생성xx
+3. root 계정으로 생성
+4. jspdb / jspuser /  mysql
+5. create database jspdb;
+6. use mysql
+7. --user 생성
+create user 'jspuser'@'localhost' identified by 'mysql';
+grant all privailleges on jspdb.* to 'jspuser'@localhost';
+flush privileges;
+
+그다음 jspuser로 접속	
+board 테이블 생성
+
+create table board(
+	bno int not null auto_increment primary key,
+	title varchar(100) not null,
+	writer varchar(100) not null,
+	content text,
+	regdate datetime default now();
+	moddate datetime default now()
+);
