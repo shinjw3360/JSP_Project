@@ -5,12 +5,32 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <!-- namespace : mapper DAO 객체를 연결하기 위한 이름  -->
-<mapper namespace="boardMapper">
+	<mapper namespace="boardMapper">
 	<!-- sql 구문 작성  -->
 	<!-- daoImpl -> namespace.id => 어느 mapper의 어느 구문을 실행해야 할지 결정-->
 	<!--  result Type = "나갈 객체의 타입" / parameterType="들어오는 객체명(생략가능) -->
 	<insert id="add" parameterType="domain.Board">
 		insert into board(title, writer, content) values(#{title}, #{writer}, #{content})
 	</insert>
+	
+	
+	<select id="list" resultType="domain.Board">
+		select * from board order by bno desc
+	</select>
+	
+	<select id="details" resultType="domain.Board" parameterType="int">
+		select * from board where bno = #{bno}
+	</select>
+		
+	<update id="update" parameterType="domain.Board">
+		update board set title = #{title}, content = #{content}, moddate=now()
+		where bno = #{bno}
+	</update>
+	
+	<delete id="del" parameterType="int">
+		delete from board where bno = #{bno}
+	</delete>
+	
+	
 	
 </mapper>

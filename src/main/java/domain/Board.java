@@ -22,7 +22,6 @@ public class Board {
 	
 
 	public Board(int bno, String title, String writer, String regdate) {
-		super();
 		this.bno = bno;
 		this.title = title;
 		this.writer = writer;
@@ -32,7 +31,6 @@ public class Board {
 	
 
 	public Board(int bno, String title, String writer, String content, String regdate, String moddate) {
-		super();
 		this.bno = bno;
 		this.title = title;
 		this.writer = writer;
@@ -42,7 +40,6 @@ public class Board {
 	}
 
 	public Board(int bno, String title, String content) {
-		super();
 		this.bno = bno;
 		this.title = title;
 		this.content = content;
